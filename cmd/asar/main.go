@@ -5,8 +5,6 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-
-	"layeh.com/asar"
 )
 
 func main() {

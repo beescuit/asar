@@ -175,6 +175,13 @@ func parseEntry(r *jsonReader, parent *Entry) {
 			if r.ExpectBool() {
 				child.Flags |= FlagExecutable
 			}
+		case "integrity":
+			// skips the integrity key
+			r.ExpectDelim('{')
+			for !r.HasDelimRune('}') {
+				r.Next()
+			}
+			r.ExpectDelim('}')
 		default:
 			panic(errHeader)
 		}
